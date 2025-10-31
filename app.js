@@ -7,8 +7,12 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import { router as taskRouter } from "./routes/task.js";
 import { router as userRouter } from "./routes/user.js";
 
+import dotenv from "dotenv";
+dotenv.config();
+
+
 mongoose
-  .connect("mongodb+srv://oumayma:oumaymaoumayma@cluster0.spb7osl.mongodb.net/")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("success"))
   .catch(() => console.log("echouee"));
 
